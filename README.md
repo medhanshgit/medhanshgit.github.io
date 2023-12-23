@@ -1,3 +1,3 @@
 # medhanshgit.github.io
 
-<a href="index.html">home</a>
+This is my portfolio website.
