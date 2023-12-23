@@ -161,7 +161,7 @@ cursor: pointer;
     }
 
     .aboutimg {
-        display: block~;
+        display: block;
     }
 
     .aboutimg::before {
