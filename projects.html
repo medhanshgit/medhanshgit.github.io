@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Projects</title>
+    <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+    <main>
+        <ul class='slider'>
+            <li class='item' style="background-image: url('https://blog.devart.com/wp-content/uploads/2021/05/Creating-a-New-Database-in-MySQL_1068x580.png')">
+                <div class='content'>
+                  <h2 class='title'>Alumni Database Management System</h2>
+                  <p class='description'> Created an Alumni Database System for IIT Gandhinagar, transforming an ER Diagram into a MySQL database, and hosted it using Flask framework, while designing a user interface using Tailwind CSS that provides
+                    role-specific access.  </p>
+                  <button onclick="toggleContent()">Read More</button>
+                </div>
+              </li>
+          <li class='item' style="background-image: url('https://zebrainsights.com/storage/2020/09/genomics.jpeg')">
+            <div class='content'>
+              <h2 class='title'>Software Engineer Intern</h2>
+              <p class='description'>
+                <ul>
+                    Designed a Java-based tool to enhance the accuracy of genomic variant analysis by effectively identifying and dis-
+carding false positive in genomic variants, contributing to more reliable genomic data interpretation.
+                </ul>
+                </p>
+                <p class='additional-description hidden'>
+                    <ul>
+                        Secured 8 endpoints by implementing JWT Authentication System using Spring Boot and Spring Security.
+                        Achieved a remarkable 98% reduction in processing time through the successful implementation of a customized
+                        data analysis pipeline. This specialized pipeline harnessed the capabilities of Blastn and SAMtools (Java API)
+                        to meticulously analyze an extensive dataset of over 1 terabyte of Homology Data.
+                        Elevated the depth of variant prevalence analysis by introducing an innovative approach involving the generation of Homopolymer Data. This method was facilitated through the application of a string-matching
+                        algorithm, which contributed to a more comprehensive understanding of genomic variations and their prevalence.
+                    </ul>
+                </p>
+                <br>
+              <button onclick="toggleContent()">Read More</button>
+            </div>
+          </li>
+          <li class='item' style="background-image: url('https://history-computer.com/wp-content/uploads/2023/01/shutterstock_2093652733-scaled.jpg')">
+            <div class='content'>
+              <h2 class='title'>NotPy Interpreter</h2>
+              <p class='description'> Developed a fully functional interpreter for our custom programming language "Notpy" using Python. </p>
+              <button onclick="toggleContent()">Read More</button>
+            </div>
+          </li>
+          <li class='item' style="background-image: url('https://www.kaspersky.com/content/en-global/images/repository/isc/2021/encryption-1.jpg')">
+            <div class='content'>
+              <h2 class='title'>Digital Image encryption using Lorenz equation and Chaotic system</h2>
+              <p class='description'>
+                Implemented chaotic dynamics and Lorenz equations for image encryption using Python, leveraging the Runge-Kutta method to generate secure encryption keys.
+              </p>
+              <button onclick="toggleContent()">Read More</button>
+            </div>
+          </li>
+          <li class='item' style="background-image: url('https://gmo-research.com/application/files/7316/6435/9654/Smart_Farming_image_shutterstock_s.jpg')">
+            <div class='content'>
+              <h2 class='title'>Smart Farming</h2>
+              <p class='description'>
+                Used Machine Learning, OpenCV and aerial imagery to analye Cotton fields to enhance the yield.
+              </p>
+              <button onclick="toggleContent()">Read More</button>
+            </div>
+          </li>
+          <li class='item' style="background-image: url('https://w.wallhaven.cc/full/42/wallhaven-42roy9.jpg')">
+            <div class='content'>
+              <h2 class='title'>Movie Recommendation System</h2>
+              <p class='description'> Developed a Python-based movie recommendations through combined content and collaborative filtering.</p>
+              <button onclick="toggleContent()">Read More</button>
+            </div>
+          </li>
+        </ul>
+        <nav class='nav'>
+          <ion-icon class='btn prev' name="arrow-back-outline"></ion-icon>
+          <ion-icon class='btn next' name="arrow-forward-outline"></ion-icon>
+          <a href="index.html"><ion-icon class='btn next' name="home"></ion-icon></a>
+        </nav>
+      </main>
+      
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+      <script src="projects.js"></script>
+</body>
+</html>
