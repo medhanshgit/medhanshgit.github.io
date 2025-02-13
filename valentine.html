@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #ffebee;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            font-size: 28px;
+            color: #d81b60;
+            margin-bottom: 10px;
+        }
+        section {
+            margin-top: 40px;
+            padding: 20px;
+            background: #ffe0e6;
+            border-radius: 8px;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        .timeline .events {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .love-letter {
+            text-align: center;
+            position: relative;
+            padding: 30px;
+        }
+        .envelope {
+            position: relative;
+            width: 350px;
+            height: 200px;
+            background-color: #ff4081;
+            margin: 20px auto;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background-color: #e91e63;
+            clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+        }
+        .letter {
+            position: absolute;
+            top: -280px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 380px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            font-size: 16px;
+            text-align: left;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+        }
+        .envelope:hover .letter {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) scale(1.05);
+        }
+        .gallery img {
+            width: 30%;
+            margin: 10px;
+            border-radius: 10px;
+        }
+        button {
+            margin: 8px;
+            padding: 12px;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #e91e63;
+            transform: scale(1.05);
+        }
+        .quiz .question {
+            margin-top: 20px;
+        }
+        .quiz-result {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #d81b60;
+        }
+        .countdown p {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .carousel-container {
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel img {
+            width: 30%;
+            margin: 5px;
+            border-radius: 5px;
+            opacity: 0.7;
+            transform: scale(0.8);
+            transition: transform 0.5s, opacity 0.5s;
+        }
+        .carousel img.center {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Our Love Story</h1>
+            <p>Happy Valentine's Day, My Love! ❤️</p>
+        </header>
+
+        <section class="timeline">
+            <h2>Our Journey</h2>
+            <div class="events">
+                <div>✨ First Meeting - <span>27th Jan 2024</span></div>
+                <div>💖 First Date - <span>30th March 2024</span></div>
+                <div>✈️ First Trip Together - <span>Pendinggggg!!!!</span></div>
+                <div>🎉 Anniversary - <span>31st March 2024</span></div>
+            </div>
+        </section>
+
+        <section class="love-letter">
+            <h2>A Love Letter for You</h2>
+            <div class="envelope">
+                <div class="flap"></div>
+                <div class="letter">
+                    <p>Dear Love,</p>
+                    <p>You are the best thing that ever happened to me. You make me laugh, you listen, and you are my best friend.</p>
+                    <p>From our late-night talks to the way you light up when you talk about something you love, I cherish every moment with you.</p>
+                    <p>Your kindness, intelligence, and passion inspire me every day.</p>
+                    <p>No matter what life throws our way, I promise to always stand beside you.</p>
+                    <p>I love you beyond words. Thank you for being you, for being mine. ❤️</p>
+                    <p>Happy Valentine's Day, my love!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <h2>Our Memories</h2>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <img src="./photo/photo1.jpg" alt="Memory 1">
+                    <img src="./photo/photo2.jpg" alt="Memory 2">
+                    <img src="./photo/photo3.jpg" alt="Memory 3">
+                    <img src="./photo/photo4.jpg" alt="Memory 4">
+                    <img src="./photo/photo5.jpg" alt="Memory 5">
+                    <img src="./photo/photo6.jpg" alt="Memory 6">
+                    <img src="./photo/photo7.jpg" alt="Memory 7">
+                    <img src="./photo/photo8.jpg" alt="Memory 8">
+                    <img src="./photo/photo9.jpg" alt="Memory 9">
+                    <img src="./photo/photo10.jpg" alt="Memory 10">
+                    <img src="./photo/photo11.jpg" alt="Memory 11">
+                    <img src="./photo/photo12.jpg" alt="Memory 12">
+                    <img src="./photo/photo13.jpg" alt="Memory 13">
+                    <img src="./photo/photo14.jpg" alt="Memory 14">
+                    <img src="./photo/photo15.jpg" alt="Memory 15">
+                    <img src="./photo/photo16.jpg" alt="Memory 16">
+                    <img src="./photo/photo17.jpg" alt="Memory 17">
+                </div>
+            </div>
+        </section>
+
+        <section class="quiz">
+            <h2>Do You Remember?</h2>
+            <div class="question">
+                <p>Where was our first date?</p>
+                <button onclick="checkAnswer(this, 'Haridwar', 'A magical evening we will never forget!')">Haridwar</button>
+                <button onclick="checkAnswer(this, 'Kudasan', 'Not until u said me yes!')">Kudasan</button>
+                <button onclick="checkAnswer(this, 'Gandhinagar', 'We are special! Not like others')">Gandhinagar</button>
+                <p class="quiz-result"></p>
+                <div class="question">
+                    <p>Where was our first kiss?</p>
+                    <button onclick="checkAnswer(this, 'My room', 'A moment to remember forever!')">My room</button>
+                    <button onclick="checkAnswer(this, 'Your room', 'Not quite, love!')">Your room</button>
+                    <button onclick="checkAnswer(this, 'Tennis Court', 'Ahhh, the perfect moment! but not righttt')">Tennis Court <3333</button>
+                    <p class="quiz-result"></p>
+                </div>
+                
+                <div class="question">
+                    <p>What happened at Tungnath?</p>
+                    <button onclick="checkAnswer(this, 'U lifted me', 'Haha, I dont remember that!')">U lifted me :(</button>
+                    <button onclick="checkAnswer(this, 'We ditched Harshita', 'No regrets indeed!')">We ditched Harshita (No regrets!)</button>
+                    <button onclick="checkAnswer(this, 'I won your heart', 'I totally did! ❤️')">I won your heart ❤️</button>
+                    <p class="quiz-result"></p>
+                </div>
+                
+                <div class="question">
+                    <p>Will you be my pookie valentine every year abhi se??</p>
+                    <button onclick="checkAnswer(this, 'Yesss', 'Yayyyy! Best answer ever!')">Yesss</button>
+                    <button onclick="checkAnswer(this, 'No', 'No naaa cutuuu! Try again?')">No :(((</button>
+                    <p class="quiz-result"></p>
+                </div>
+        </section>
+
+        <section class="countdown">
+            <h2>Countdown to Our Anniversary</h2>
+            <p id="countdown-timer"></p>
+        </section>
+    </div>
+
+    <script>
+        function checkAnswer(button, answer, message) {
+            let correctAnswers = {
+                'Haridwar': true,
+                'My room': true,
+                'U lifted me': true,
+                'Yesss': true
+            };
+            
+            let resultText = button.parentElement.querySelector(".quiz-result");
+            
+            if (correctAnswers[answer]) {
+                button.style.backgroundColor = '#4CAF50';
+                resultText.innerText = message;
+            } else {
+                button.style.backgroundColor = '#e91e63';
+                resultText.innerText = message;
+            }
+        }
+        function updateCountdown() {
+            const anniversary = new Date('2025-03-31').getTime();
+            const now = new Date().getTime();
+            const difference = anniversary - now;
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            document.getElementById('countdown-timer').innerText = `${days} days left until our anniversary!`;
+        }
+        setInterval(updateCountdown, 1000);
+        let index = 1;
+        function updateCarousel() {
+            const images = document.querySelectorAll(".carousel img");
+            images.forEach(img => img.classList.remove("center"));
+            images[index+1].classList.add("center");
+            document.querySelector(".carousel").style.transform = `translateX(-${index * 33.3}%)`;
+            index = (index + 1) % images.length;
+        }
+        setInterval(updateCarousel, 2000);
+    </script>
+</body>
+</html>
