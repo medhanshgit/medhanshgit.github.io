@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="A special birthday page dedicated to Ishani — celebrating her hard work, sincerity, and support." />
+  <title>Happy Birthday, Ishani 💖</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Happy Birthday, Ishani 💖" />
+  <meta property="og:description" content="Thank you for your hard work, sincerity, and unwavering support." />
+  <meta property="og:image" content="https://picsum.photos/seed/og/1200/630" />
+  <meta name="theme-color" content="#f78fb3" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#f78fb3;
+      --accent:#f8a5c2;
+      --bg1:#fff7fa;
+      --bg2:#ffffff;
+      --muted:#e85f8c;
+      --radius:14px;
+      --card-radius:12px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg1:#e85f8c;
+        --bg2:#f8a5c2;
+        --muted:#bbb;
+      }
+    }
+    body{
+      margin:0;
+      font-family:"Inter",sans-serif;
+      background:linear-gradient(180deg,var(--bg1),var(--bg2));
+      padding:28px 18px;
+      display:flex;
+      justify-content:center;
+    }
+    .wrap{max-width:900px;width:100%;}
+
+    /* Hero */
+    .hero{
+      background:linear-gradient(135deg,rgba(247,143,179,0.15),rgba(248,165,194,0.15));
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:0 6px 24px rgba(0,0,0,0.06);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:18px;
+    }
+    h1{
+      font-family:"Playfair Display",serif;
+      margin:0 0 8px;
+      font-size:clamp(24px,5vw,40px);
+      color:#2b1a23;
+    }
+    .sub{margin:0;color:var(--muted);}
+    .btn{
+      border:0;
+      background:linear-gradient(180deg,var(--primary),#e85f8c);
+      color:white;
+      padding:10px 16px;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:600;
+    }
+    .ghost{
+      background:transparent;
+      border:1px solid rgba(0,0,0,0.1);
+      border-radius:10px;
+      padding:8px 12px;
+      cursor:pointer;
+      color:var(--muted);
+    }
+
+    main{margin-top:22px;display:grid;gap:18px;}
+    .card{
+      background:rgba(255,255,255,0.8);
+      border-radius:var(--card-radius);
+      padding:18px;
+      box-shadow:0 4px 16px rgba(0,0,0,0.05);
+    }
+    .appreciation p{margin:10px 0;color:#3b2b32;}
+
+    /* Wishes */
+    .wishes{display:flex;align-items:center;gap:10px;}
+    .note{
+      flex:1;
+      padding:12px 16px;
+      border-radius:12px;
+      background:linear-gradient(90deg,rgba(255,255,255,0.95),rgba(247,143,179,0.15));
+      min-height:56px;
+      display:flex;
+      align-items:center;
+      font-weight:600;
+    }
+    .wish-controls{display:flex;gap:8px;}
+
+    .letter{white-space:pre-wrap;color:#2d1c21;line-height:1.5;font-size:15px;}
+
+    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px;}
+
+    #particles{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:10;}
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+    }
+  </style>
+</head>
+<body>
+  <canvas id="particles"></canvas>
+  <div class="wrap">
+    <header class="hero">
+      <div>
+        <h1 id="hero-title"></h1>
+        <p class="sub" id="hero-sub"></p>
+      </div>
+      <div>
+        <button class="btn" id="surpriseBtn">Open your surprise</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="card appreciation">
+        <h3>Appreciation</h3>
+        <div id="appreciationList"></div>
+      </section>
+
+      <section class="card">
+        <h3>Wishes Wall</h3>
+        <div class="wishes">
+          <div class="note" id="currentNote"></div>
+          <div class="wish-controls">
+            <button class="ghost" id="prevNote">◀</button>
+            <button class="ghost" id="nextNote">▶</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>A Letter</h3>
+        <div id="letter" class="letter"></div>
+      </section>
+
+      <section class="card" id="surprisePanel" style="display:none;">
+        <h3>For you, with love</h3>
+        <p id="finalReveal"></p>
+      </section>
+
+      <footer>Made with ❤ for Ishani</footer>
+    </main>
+  </div>
+
+  <audio id="bgAudio" preload="none" loop>
+    <source id="bgAudioSource" src="" type="audio/mpeg">
+  </audio>
+
+  <script>
+  const DATA = {
+    name:"Ishani",
+    appreciationPoints:[
+      "Your dedication inspires me deeply — the way you give your best in everything you do amazes me.",
+      "Your sincerity makes every moment feel genuine and safe.",
+      "Thank you for your constant support, you lift me up every day."
+    ],
+    shortNotes:[
+      "You’re my favorite hello.",
+      "I’m proud of you.",
+      "You make life magical.",
+      "Your smile is my sunshine."
+    ],
+    loveLetter:`My dearest Ishani,
+
+Every day I admire the way you put your whole heart into what you do. Your sincerity and strength are rare and beautiful, and they make me want to be better. You never let hard days define you — instead, you rise with quiet courage and grace.
+
+Thank you for standing beside me, for believing in us, and for filling my world with love. You’ve given me more laughter, comfort, and joy than I ever imagined possible.
+
+On your birthday, I just want you to know: you are cherished beyond words. Here’s to a year filled with light, adventure, and endless love.
+
+Always yours,`,
+    finalMessage:"Here’s to your brightest year yet, Ishani. 💞",
+    audioUrl:""
+  };
+
+  /* Populate */
+  document.title = `Happy Birthday, ${DATA.name} 💖`;
+  document.getElementById("hero-sub").textContent =
+    `Thank you for your hard work, sincerity, and support. Today we celebrate you.`;
+  document.getElementById("letter").textContent = DATA.loveLetter;
+  document.getElementById("finalReveal").textContent = DATA.finalMessage;
+
+  const appList=document.getElementById("appreciationList");
+  DATA.appreciationPoints.forEach(p=>{
+    const el=document.createElement("p");
+    el.textContent=p;
+    appList.appendChild(el);
+  });
+
+  /* Typewriter */
+  const heroTitle=document.getElementById("hero-title");
+  const targetText=`Happy Birthday, ${DATA.name} 💖`;
+  function typewriter(el,text){
+    el.textContent="";
+    let i=0;
+    function step(){
+      if(i<=text.length){
+        el.textContent=text.slice(0,i)+(i%2?"|":"");
+        i++;setTimeout(step,28);
+      }else{el.textContent=text;}
+    } step();
+  }
+  typewriter(heroTitle,targetText);
+
+  /* Wishes cycling */
+  let noteIndex=0;
+  const noteEl=document.getElementById("currentNote");
+  function showNote(i){noteEl.textContent=DATA.shortNotes[i];}
+  showNote(noteIndex);
+  setInterval(()=>{noteIndex=(noteIndex+1)%DATA.shortNotes.length;showNote(noteIndex);},4000);
+  document.getElementById("prevNote").onclick=()=>{noteIndex=(noteIndex-1+DATA.shortNotes.length)%DATA.shortNotes.length;showNote(noteIndex);};
+  document.getElementById("nextNote").onclick=()=>{noteIndex=(noteIndex+1)%DATA.shortNotes.length;showNote(noteIndex);};
+
+  /* Surprise + confetti */
+  const surpriseBtn=document.getElementById("surpriseBtn");
+  const surprisePanel=document.getElementById("surprisePanel");
+  surpriseBtn.onclick=()=>{surprisePanel.style.display="block";runConfetti();};
+
+  const canvas=document.getElementById("particles");
+  const ctx=canvas.getContext("2d");
+  function resize(){canvas.width=innerWidth;canvas.height=innerHeight;}
+  resize();window.onresize=resize;
+
+  function runConfetti(){
+    let particles=[];
+    for(let i=0;i<60;i++){
+      particles.push({
+        x:canvas.width/2,
+        y:canvas.height/3,
+        vx:(Math.random()-0.5)*8,
+        vy:Math.random()*-8,
+        r:6+Math.random()*6,
+        color:Math.random()>0.5?"#f78fb3":"#f8a5c2",
+        life:100
+      });
+    }
+    function frame(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      particles.forEach(p=>{
+        p.x+=p.vx;p.y+=p.vy;p.vy+=0.2;p.life--;
+        ctx.fillStyle=p.color;
+        ctx.fillRect(p.x,p.y,p.r,p.r);
+      });
+      particles=particles.filter(p=>p.life>0);
+      if(particles.length)requestAnimationFrame(frame);
+    }
+    frame();
+  }
+  </script>
+</body>
+</html>
